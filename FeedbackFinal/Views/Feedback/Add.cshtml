@@ -1,0 +1,325 @@
+﻿@model FeedbackFinal.Models.FormResponse
+@{
+}
+<html>
+    <head><title>feedback</title></head>
+    <body>
+        <legend> Feedback Form </legend>
+        <form action="save_infofce.php" method="post" enctype="multipart/form-data">
+
+            <div class="container">
+                <div class="row" style="margin-bottom: 20px;">
+                    <div class="col-1"></div>
+                    <div class="col-10">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-6">
+                                                                        Name:
+                                    <input type="text" name="name" value="" id="name" style="border:0px; border-bottom: 1px solid #000;width: 80%">
+                                </div>
+                                <div class="col-6">
+                                    Enrollment Number:
+                                    <input type="text" name="mid" value="" id="mid" style="border:0px; border-bottom: 1px solid #000;width: 60%">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-1"></div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row" style="margin-bottom: 30px;">
+                    <legend>Upload your Signature:</legend>
+                    <div class="col-6">
+                        <input type="file" name="sign_path" id="sign_path" class="form-control">
+                    </div>
+
+                </div>
+            </div>
+			
+			 <div class="container">
+			@{
+				var subject = Context.Request.Query["subject"].ToString().Replace("_", " ");
+				var subjectId = Context.Request.Query["subjectId"].ToString();
+			}
+                <div class="row" style="margin-bottom: 30px;">
+                    <legend>Subject Code: @(subjectId)</legend>
+                    <div class="col-6">
+						
+                    </div>
+                </div>
+            </div>
+			
+			<div class="container">
+                <div class="row" style="margin-bottom: 30px;">
+				
+				<legend>Subject Name: @(subject)</legend>
+                    <div class="col-6">
+						
+                    </div>
+                </div>
+            </div>
+			<input type="hidden" name="subject_code" value="MCA-103">
+            
+			<div class="container">
+                <div class="row" style="margin-bottom: 30px;" id="table">
+
+
+<div class="container">
+<div class="row">
+<div class="col-12" style="text-align:justify">
+Dear students, <br>
+For continuous improvement of the Teaching - Learning System (TLS), we feel that it is extremely important to know how well we are meeting your academic needs and how we might better meet them? The information, which you provide will be held in strict confidence. Please note that we ask for your name only for administrative purposes, however, it is optional. Will you, therefore, take few minutes to answer thoughtfully the following questions?
+<br><br>
+
+</div>
+<div class="col-6"><strong>Enrollment No. :</strong> 08411604422</div>
+<div class="col-6"><strong>Name :</strong> Saurav </div>
+<div class="col-6"><strong>Programme : </strong>MCA</div>
+<div class="col-6"><strong>Semester :</strong> 3</div>
+</div>
+</div>
+<!-- Will be displayed if not filled by student -->
+<div class="container">
+<div class="row">
+<div class="col-12 mt-4" style="text-align:justify"><strong>
+A. ABOUT GENERAL ADMINISTRATION:</strong></div>
+<div class="col-8" style="text-align:justify">1.	Whether problems have been solved, as and when approached? </div>
+<div class="col-4" style="text-align:justify">
+<input type="radio" name="ga1" value="Yes" required="">Yes
+<input type="radio" name="ga1" value="No">No
+</div>
+<div class="col-8 mt-2" style="text-align:justify">2.	Whether overall administrative support has been satisfactorily? </div>
+<div class="col-4 mt-2" style="text-align:justify"><input type="radio" name="ga2" value="Yes" required="">Yes
+<input type="radio" name="ga2" value="No">No</div>
+<div class="col-8 mt-2" style="text-align:justify">3.	Any specific suggestion for administrative improvement:  </div>
+<div class="col-12 mt-2 mb-2" style="text-align:justify"><input type="text" name="ga3" value="" style="border:0px; border-bottom: 1px solid #000;width: 80%" placeholder="Provide the Suggestion "></div>
+</div>
+</div>
+
+
+<div class="container">
+<div class="row">
+<div class="col-12 mt-4" style="text-align:justify"><strong>
+B. ABOUT THE LABORATORY: </strong></div>
+<div class="col-8" style="text-align:justify">1.	Whether enough time has been given for Practice? </div>
+<div class="col-4" style="text-align:justify">
+<input type="radio" name="al1" value="Yes" required="">Yes
+<input type="radio" name="al1" value="No">No
+</div>
+<div class="col-8 mt-2" style="text-align:justify">2.	Whether enough exercises and assignments have been given?  </div>
+<div class="col-4 mt-2" style="text-align:justify"><input type="radio" name="al2" value="Yes" required="">Yes
+<input type="radio" name="al2" value="No">No</div>
+<div class="col-8 mt-2" style="text-align:justify">3.	Whether enough support has been provided during practical hours? </div>
+<div class="col-4 mt-2" style="text-align:justify"><input type="radio" name="al3" value="Yes" required="">Yes
+<input type="radio" name="al3" value="No">No</div>
+<div class="col-8 mt-2" style="text-align:justify">4.	Whether evaluation/assessment has been done?  </div>
+<div class="col-4 mt-2" style="text-align:justify"><input type="radio" name="al4" value="Yes" required="">Yes
+<input type="radio" name="al4" value="No">No</div>
+<div class="col-8 mt-2" style="text-align:justify">5.	Whether mistakes have been highlighted and due corrections have been done?   </div>
+<div class="col-4 mt-2" style="text-align:justify"><input type="radio" name="al5" value="Yes" required="">Yes
+<input type="radio" name="al5" value="No">No</div>
+<div class="col-8 mt-2" style="text-align:justify">6.	Any specific suggestion for administrative improvement:  </div>
+<div class="col-12 mt-2 mb-2" style="text-align:justify"><input type="text" name="al6" value="" style="border:0px; border-bottom: 1px solid #000;width: 80%" placeholder="Provide the Suggestion "></div>
+</div>
+</div>
+
+<div class="container">
+<div class="row">
+<div class="col-12 mt-4" style="text-align:justify"><strong>
+C. ABOUT THE LIBRARY:</strong></div>
+<div class="col-8" style="text-align:justify">1.	Whether book bank facility has been satisfactory? </div>
+<div class="col-4" style="text-align:justify">
+<input type="radio" name="alb1" value="Yes" required="">Yes
+<input type="radio" name="alb1" value="No">No
+</div>
+<div class="col-8 mt-2" style="text-align:justify">2.	Whether related Magazines / Journals are available in the Library?   </div>
+<div class="col-4 mt-2" style="text-align:justify"><input type="radio" name="alb2" value="Yes" required="">Yes
+<input type="radio" name="alb2" value="No">No</div>
+<div class="col-8 mt-2" style="text-align:justify">3.	Whether books, which have been requested by students or recommended by faculty, have been procured in the Library?  </div>
+<div class="col-4 mt-2" style="text-align:justify"><input type="radio" name="alb3" value="Yes" required="">Yes
+<input type="radio" name="alb3" value="No">No</div>
+<div class="col-8 mt-2" style="text-align:justify">4.	Whether facility of reference section has been provided, when required? </div>
+<div class="col-4 mt-2" style="text-align:justify"><input type="radio" name="alb4" value="Yes" required="">Yes
+<input type="radio" name="alb4" value="No">No</div>
+<div class="col-8 mt-2" style="text-align:justify">5.	Any specific suggestion for improvement in Library System: </div>
+<div class="col-12 mt-2 mb-2" style="text-align:justify"><input type="text" name="alb5" value="" style="border:0px; border-bottom: 1px solid #000;width: 80%" placeholder="Provide the Suggestion "></div>
+</div>
+</div>
+
+
+
+<table class="table table-stripped table-bordered text-justify">
+	<tbody><tr>
+		<th rowspan="2" width="6%">S.No.</th>
+		<th rowspan="2" width="50%">Parameters</th>
+		<th colspan="5" width="24%">Rating</th>
+
+	</tr>
+	<tr>
+		<th>Excellent<br>  (5)</th>
+		<th>Very Good<br>  (4)</th>
+		<th>Good<br>  (3)</th>
+		<th>Average<br> (2)</th>
+		<th>Poor<br> (1)</th>
+	</tr>
+		<tr>
+		<td>1</td>
+		<td>The objectives of this course were made clear to me by this teacher
+		</td>
+		<td><input type="radio" name="feedback1" id="feedback1" value="5" required=""> (5)</td>
+		<td><input type="radio" name="feedback1" id="feedback1" value="4"> (4)</td>
+		<td><input type="radio" name="feedback1" id="feedback1" value="3"> (3)</td>
+		<td><input type="radio" name="feedback1" id="feedback1" value="2"> (2)</td>
+		<td><input type="radio" name="feedback1" id="feedback1" value="1"> (1)</td>
+	</tr>
+   	<tr>
+		<td>2</td>
+		<td>The teacher speaks, articulate and explains  concepts  clearly		</td>
+		<td><input type="radio" name="feedback2" id="feedback2" value="5" required=""> (5)</td>
+		<td><input type="radio" name="feedback2" id="feedback2" value="4"> (4)</td>
+		<td><input type="radio" name="feedback2" id="feedback2" value="3"> (3)</td>
+		<td><input type="radio" name="feedback2" id="feedback2" value="2"> (2)</td>
+		<td><input type="radio" name="feedback2" id="feedback2" value="1"> (1)</td>
+	</tr>
+   	<tr>
+		<td>3</td>
+		<td>The teacher  adheres to  the timing Schedule  and   enforces Discipline in the class		</td>
+		<td><input type="radio" name="feedback3" id="feedback3" value="5" required=""> (5)</td>
+		<td><input type="radio" name="feedback3" id="feedback3" value="4"> (4)</td>
+		<td><input type="radio" name="feedback3" id="feedback3" value="3"> (3)</td>
+		<td><input type="radio" name="feedback3" id="feedback3" value="2"> (2)</td>
+		<td><input type="radio" name="feedback3" id="feedback3" value="1"> (1)</td>
+	</tr>
+   	<tr>
+		<td>4</td>
+		<td>The  teacher  is  stimulating,  interesting  to listen to and inspires the students in the class
+		</td>
+		<td><input type="radio" name="feedback4" id="feedback4" value="5" required=""> (5)</td>
+		<td><input type="radio" name="feedback4" id="feedback4" value="4"> (4)</td>
+		<td><input type="radio" name="feedback4" id="feedback4" value="3"> (3)</td>
+		<td><input type="radio" name="feedback4" id="feedback4" value="2"> (2)</td>
+		<td><input type="radio" name="feedback4" id="feedback4" value="1"> (1)</td>
+	</tr>
+   	<tr>
+		<td>5</td>
+		<td>The lectures were well structured and focused on the topics
+		</td>
+		<td><input type="radio" name="feedback5" id="feedback5" value="5" required=""> (5)</td>
+		<td><input type="radio" name="feedback5" id="feedback5" value="4"> (4)</td>
+		<td><input type="radio" name="feedback5" id="feedback5" value="3"> (3)</td>
+		<td><input type="radio" name="feedback5" id="feedback5" value="2"> (2)</td>
+		<td><input type="radio" name="feedback5" id="feedback5" value="1"> (1)</td>
+	</tr>
+   	<tr>
+		<td>6</td>
+		<td>The  teacher  has  enthusiasm  and  concern  for students
+		</td>
+		<td><input type="radio" name="feedback6" id="feedback6" value="5" required=""> (5)</td>
+		<td><input type="radio" name="feedback6" id="feedback6" value="4"> (4)</td>
+		<td><input type="radio" name="feedback6" id="feedback6" value="3"> (3)</td>
+		<td><input type="radio" name="feedback6" id="feedback6" value="2"> (2)</td>
+		<td><input type="radio" name="feedback6" id="feedback6" value="1"> (1)</td>
+	</tr>
+   	<tr>
+		<td>7</td>
+		<td>The  teacher  has  fair  knowledge  of the  subject matter
+		</td>
+		<td><input type="radio" name="feedback7" id="feedback7" value="5" required=""> (5)</td>
+		<td><input type="radio" name="feedback7" id="feedback7" value="4"> (4)</td>
+		<td><input type="radio" name="feedback7" id="feedback7" value="3"> (3)</td>
+		<td><input type="radio" name="feedback7" id="feedback7" value="2"> (2)</td>
+		<td><input type="radio" name="feedback7" id="feedback7" value="1"> (1)</td>
+	</tr>
+   	<tr>
+		<td>8</td>
+		<td>The teacher's method of teaching was effective with best possible pedagogies		</td>
+		<td><input type="radio" name="feedback8" id="feedback8" value="5" required=""> (5)</td>
+		<td><input type="radio" name="feedback8" id="feedback8" value="4"> (4)</td>
+		<td><input type="radio" name="feedback8" id="feedback8" value="3"> (3)</td>
+		<td><input type="radio" name="feedback8" id="feedback8" value="2"> (2)</td>
+		<td><input type="radio" name="feedback8" id="feedback8" value="1"> (1)</td>
+	</tr>
+   	<tr>
+		<td>9</td>
+		<td>Time spent on lecturing by the teacher for course coverage was sufficient and lesson plan was followed
+		</td>
+		<td><input type="radio" name="feedback9" id="feedback9" value="5" required=""> (5)</td>
+		<td><input type="radio" name="feedback9" id="feedback9" value="4"> (4)</td>
+		<td><input type="radio" name="feedback9" id="feedback9" value="3"> (3)</td>
+		<td><input type="radio" name="feedback9" id="feedback9" value="2"> (2)</td>
+		<td><input type="radio" name="feedback9" id="feedback9" value="1"> (1)</td>
+	</tr>
+   	<tr>
+		<td>10</td>
+		<td>The   teacher   encourages   students   to    raise pertinent questions and answers them
+		</td>
+		<td><input type="radio" name="feedback10" id="feedback10" value="5" required=""> (5)</td>
+		<td><input type="radio" name="feedback10" id="feedback10" value="4"> (4)</td>
+		<td><input type="radio" name="feedback10" id="feedback10" value="3"> (3)</td>
+		<td><input type="radio" name="feedback10" id="feedback10" value="2"> (2)</td>
+		<td><input type="radio" name="feedback10" id="feedback10" value="1"> (1)</td>
+	</tr>
+   
+			
+			
+			
+</tbody></table>
+<div class="container">
+<div class="row">
+
+<div class="col-8" style="text-align:justify">E. Whether value added inputs / workshops / seminars have been conducted?  </div>
+<div class="col-4" style="text-align:justify">
+<input type="radio" name="e1" value="Yes" required="">Yes
+<input type="radio" name="e1" value="No">No
+</div>
+
+<div class="col-8 mt-2" style="text-align:justify">F. List topics on which you feel Lectures / Workshops should be organized in near future:     </div>
+<div class="col-12 mt-2 mb-2" style="text-align:justify"><input type="text" name="f1" value="" style="border:0px; border-bottom: 1px solid #000;width: 80%" placeholder="Provide the comma separated List of Topics  "></div>
+</div>
+</div>
+
+<div class="col-8 mt-2" style="text-align:justify">G. What are your suggestions for further improvement of Teaching Learning System (TLS):    </div>
+<div class="col-12 mt-2 mb-2" style="text-align:justify"><input type="text" name="g1" value="" style="border:0px; border-bottom: 1px solid #000;width: 80%" placeholder="Provide the suggestion"></div>
+
+
+
+<div class="col-8 mt-2" style="text-align:justify">H. How can you help / contribute to improve the overall system of the Institute (both in short run and long run)?   </div>
+<div class="col-12 mt-2 mb-2" style="text-align:justify"><input type="text" name="h1" value="" style="border:0px; border-bottom: 1px solid #000;width: 80%" placeholder="Provide the suggestion  "></div>
+
+
+
+<div class="col-8 mt-2" style="text-align:justify">I. Five strengths  / positive points of your Institute: (mandatory to fill) </div>
+<div class="col-12 mt-2 mb-2" style="text-align:justify">1. <input required="" type="text" name="p1" value="" style="border:0px; border-bottom: 1px solid #000;width: 80%" placeholder="Strength 1 "></div>
+<div class="col-12 mt-2 mb-2" style="text-align:justify">2. <input required="" type="text" name="p2" value="" style="border:0px; border-bottom: 1px solid #000;width: 80%" placeholder="Strength 2 "></div>
+<div class="col-12 mt-2 mb-2" style="text-align:justify">3. <input required="" type="text" name="p3" value="" style="border:0px; border-bottom: 1px solid #000;width: 80%" placeholder="Strength 3 "></div>
+<div class="col-12 mt-2 mb-2" style="text-align:justify">4. <input required="" type="text" name="p4" value="" style="border:0px; border-bottom: 1px solid #000;width: 80%" placeholder="Strength 4 "></div>
+<div class="col-12 mt-2 mb-2" style="text-align:justify">5. <input required="" type="text" name="p5" value="" style="border:0px; border-bottom: 1px solid #000;width: 80%" placeholder="Strength 5 "></div>
+
+
+
+
+<div class="col-8 mt-2" style="text-align:justify">J. Five weaknesses / negative points of your Institute: (Mandatory to fill, Put NA if not applicable) </div>
+<div class="col-12 mt-2 mb-2" style="text-align:justify">1. <input required="" type="text" name="n1" value="" style="border:0px; border-bottom: 1px solid #000;width: 80%" placeholder="Weakness 1 "></div>
+<div class="col-12 mt-2 mb-2" style="text-align:justify">2. <input required="" type="text" name="n2" value="" style="border:0px; border-bottom: 1px solid #000;width: 80%" placeholder="Weakness 2 "></div>
+<div class="col-12 mt-2 mb-2" style="text-align:justify">3. <input required="" type="text" name="n3" value="" style="border:0px; border-bottom: 1px solid #000;width: 80%" placeholder="Weakness 3 "></div>
+<div class="col-12 mt-2 mb-2" style="text-align:justify">4. <input required="" type="text" name="n4" value="" style="border:0px; border-bottom: 1px solid #000;width: 80%" placeholder="Weakness 4 "></div>
+<div class="col-12 mt-2 mb-2" style="text-align:justify">5. <input required="" type="text" name="n5" value="" style="border:0px; border-bottom: 1px solid #000;width: 80%" placeholder="Weakness 5 "></div>
+
+
+
+
+
+
+<strong>Suggestion for improvement in the workshop (If any):</strong>
+<input type="hidden" name="type" value="FDF">
+
+<textarea name="suggestion" id="suggestion" class="form-control"> </textarea>
+<input type="submit" value="Submit" class="btn btn-success btn-sm">
+</div>
+            </div>
+            
+        </form>	
+
+    </body>
+</html>
