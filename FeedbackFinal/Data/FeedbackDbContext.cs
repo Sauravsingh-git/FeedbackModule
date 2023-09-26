@@ -26,10 +26,6 @@ namespace FeedbackFinal.Data
             modelBuilder.Entity<Response>()
             .HasKey(p => new { p.FeedbackId, p.QuestionId });
 
-            modelBuilder.Entity<Response>()
-                .Property(p => p.HashKey)
-                .HasComputedColumnSql("CONCAT(FeedbackId, QuestionId)");
-
             base.OnModelCreating(modelBuilder);
         }
     }
