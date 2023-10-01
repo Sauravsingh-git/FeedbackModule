@@ -4,6 +4,7 @@ using FeedbackFinal.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FeedbackFinal.Migrations
 {
     [DbContext(typeof(FeedbackDbContext))]
-    partial class FeedbackDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230930145334_Initial Migration")]
+    partial class InitialMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -63,7 +65,17 @@ namespace FeedbackFinal.Migrations
             modelBuilder.Entity("FeedbackFinal.Models.Domain.Response", b =>
                 {
                     b.Property<Guid>("FeedbackId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnOrder(1);
+
+                    b.Property<string>("QuestionId")
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnOrder(2);
+
+                    b.Property<string>("HashKey")
+                        .IsRequired()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ResponseTextA1")
                         .IsRequired()
@@ -221,7 +233,7 @@ namespace FeedbackFinal.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("FeedbackId");
+                    b.HasKey("FeedbackId", "QuestionId");
 
                     b.ToTable("ResponseEntry");
                 });

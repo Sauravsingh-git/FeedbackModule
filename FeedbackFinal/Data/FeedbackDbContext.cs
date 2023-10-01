@@ -18,15 +18,6 @@ namespace FeedbackFinal.Data
 
         public DbSet<Subject> Subjects { get; set; }
 
-        // ovverriding the OnModelCreating method since entityCore does not support 
-        // creating composite key and can be created using 'HasKey' in OnModelCreating
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Response>()
-            .HasKey(p => new { p.FeedbackId, p.QuestionId });
-
-            base.OnModelCreating(modelBuilder);
-        }
     }
 }

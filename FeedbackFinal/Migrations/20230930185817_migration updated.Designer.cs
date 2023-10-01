@@ -4,6 +4,7 @@ using FeedbackFinal.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FeedbackFinal.Migrations
 {
     [DbContext(typeof(FeedbackDbContext))]
-    partial class FeedbackDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230930185817_migration updated")]
+    partial class migrationupdated
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -64,6 +66,11 @@ namespace FeedbackFinal.Migrations
                 {
                     b.Property<Guid>("FeedbackId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("HashKey")
+                        .IsRequired()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ResponseTextA1")
                         .IsRequired()
