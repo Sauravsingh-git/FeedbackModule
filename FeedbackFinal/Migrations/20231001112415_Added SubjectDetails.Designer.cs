@@ -4,6 +4,7 @@ using FeedbackFinal.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FeedbackFinal.Migrations
 {
     [DbContext(typeof(FeedbackDbContext))]
-    partial class FeedbackDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231001112415_Added SubjectDetails")]
+    partial class AddedSubjectDetails
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -268,7 +270,7 @@ namespace FeedbackFinal.Migrations
                     b.HasData(
                         new
                         {
-                            SubjectId = new Guid("54d25c13-bffb-48a1-a188-bdef592b24bc"),
+                            SubjectId = new Guid("e06e01cb-27a6-4c90-bf78-715d3951c093"),
                             SubjectCode = "MCA-101",
                             SubjectName = "Data Structures",
                             TeacherId = "Parul",
@@ -276,7 +278,7 @@ namespace FeedbackFinal.Migrations
                         },
                         new
                         {
-                            SubjectId = new Guid("0a2ea97a-9ab6-4aee-88fa-a110c4def2f0"),
+                            SubjectId = new Guid("6d372407-b0fc-4433-8301-b1163def62c6"),
                             SubjectCode = "MCA-223",
                             SubjectName = "Cloud Computing",
                             TeacherId = "Parul",
@@ -284,7 +286,7 @@ namespace FeedbackFinal.Migrations
                         },
                         new
                         {
-                            SubjectId = new Guid("209a2540-5837-4268-b2de-05755c0c9f70"),
+                            SubjectId = new Guid("d7d7cea4-dcad-45e7-8114-ed79de4c85be"),
                             SubjectCode = "MCA-105",
                             SubjectName = "Operating System With Linux",
                             TeacherId = "Sunil",
@@ -292,7 +294,7 @@ namespace FeedbackFinal.Migrations
                         },
                         new
                         {
-                            SubjectId = new Guid("a129aaa4-ab88-4298-a2a5-e04924463426"),
+                            SubjectId = new Guid("b615028b-5c92-4c10-95e3-f4c3166b9cbe"),
                             SubjectCode = "MCA-233",
                             SubjectName = "Multimedia",
                             TeacherId = "Sunil",
@@ -300,7 +302,7 @@ namespace FeedbackFinal.Migrations
                         },
                         new
                         {
-                            SubjectId = new Guid("2b77919c-52d8-4a79-be2b-8b3777da6025"),
+                            SubjectId = new Guid("7b8eca3c-071b-4289-bfad-2138fe66aec8"),
                             SubjectCode = "MCA-103",
                             SubjectName = "Computer Networks",
                             TeacherId = "Manish",

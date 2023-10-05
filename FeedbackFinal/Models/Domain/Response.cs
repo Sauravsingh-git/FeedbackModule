@@ -53,7 +53,7 @@ namespace FeedbackFinal.Models.Domain
 		public string ResponseTextJ3 { get; set; }
 		public string ResponseTextJ4 { get; set; }
 		public string ResponseTextJ5 { get; set; }
-        public string ResponsetextK1 { get; set; }
+        public string ResponseTextK1 { get; set; }
 
     }
 }

@@ -1,0 +1,98 @@
+﻿@model SubmissionResult
+@{
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="float-end">
+                <p><b>Total Entries : @Model.TotalEntries</b></p>
+            </div>
+        </div>
+</div>
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">SNo.</th>
+                <th scope="col" class="col-8">Questions</th>
+                <th scope="col">Overall Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>The objectives of this course were made clear to me by this teacher.</td>
+                <td>@Model.D1</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>The teacher speaks, articulate and explains concepts clearly.</td>
+                <td>@Model.D2</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>The teacher adheres to the timing Schedule and enforces Discipline in the class.</td>
+                <td>@Model.D3</td>
+            </tr>
+            <tr>
+                <th scope="row">4</th>
+                <td>The teacher is stimulating, interesting to listen to and inspires the students in the class.</td>
+                <td>@Model.D4</td>
+            </tr>
+            <tr>
+                <th scope="row">5</th>
+                <td>The lectures were well structured and focused on the topics.</td>
+                <td>@Model.D5</td>
+            </tr>
+            <tr>
+                <th scope="row">6</th>
+                <td>The teacher has enthusiasm and concern for students.</td>
+                <td>@Model.D6</td>
+            </tr>
+            <tr>
+                <th scope="row">7</th>
+                <td>The teacher has fair knowledge of the subject matter.</td>
+                <td>@Model.D7</td>
+            </tr>
+            <tr>
+                <th scope="row">8</th>
+                <td>The teacher's method of teaching was effective with best possible pedagogies.</td>
+                <td>@Model.D8</td>
+            </tr>
+            <tr>
+                <th scope="row">9</th>
+                <td>Time spent on lecturing by the teacher for course coverage was sufficient and lesson plan was followed.</td>
+                <td>@Model.D9</td>
+            </tr>
+            <tr>
+                <th scope="row">10</th>
+                <td>The teacher encourages students to raise pertinent questions and answers them.</td>
+                <td>@Model.D1</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+
+
+<table class="table table-hovered table-stripped">
+    <tbody>
+        <tr>
+            <th>S. No.</th>
+            <th>Enrollment Number</th>
+            <th>TimeStamp</th>
+            <th>Action</th>
+        </tr>
+        @for (int i = 0; i < Model.FilledResponses.Count; i++)
+        {
+            <tr>
+                <td>@(i + 1)</td>
+                <td>@Model.FilledResponses[i].EnrollmentRollNo</td>
+                <td>@Model.FilledResponses[i].SubmissionTimestamp</td>
+                <td>
+                    <a href="@Url.Action("ViewForm", "Feedback", new { FeedbackId  = Model.FilledResponses[i].FeedbackId })" id="btn_fce86" class="btn btn-sm btn-success">View Submission</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

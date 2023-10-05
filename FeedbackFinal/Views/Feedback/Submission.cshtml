@@ -1,0 +1,44 @@
+﻿    @model FeedbackFinal.Models.Forms.SubmissionForm
+
+    @{
+    }
+
+
+
+
+
+    <form method="get" asp-action="Result">
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Select Subject</label>
+                        <select class="form-control" asp-for="SubjectCode">
+                            @foreach (var item in Model.Subjects)
+                            {
+                                <option value="@item.SubjectCode">@item.SubjectName</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="year">Select Year</label>
+                        <select class="form-control" asp-for="Year" >
+                            @for (int i = 2012; i < 2040; i++)
+                            {
+                                <option value="@i">@i</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">VIEW</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+
+

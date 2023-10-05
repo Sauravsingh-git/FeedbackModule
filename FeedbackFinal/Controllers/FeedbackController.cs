@@ -1,7 +1,9 @@
 ﻿using FeedbackFinal.Data;
 using FeedbackFinal.Models;
 using FeedbackFinal.Models.Domain;
+using FeedbackFinal.Models.Forms;
 using Microsoft.AspNetCore.Mvc;
+using System.Runtime.Remoting;
 
 namespace FeedbackFinal.Controllers
 {
@@ -19,12 +21,59 @@ namespace FeedbackFinal.Controllers
             return View();
         }
 
-        public IActionResult Add(String SubjectId, String SubjectName)
+
+        public IActionResult Submission()
         {
-            return View();
+            SubmissionForm obj = new SubmissionForm();
+            obj.Subjects = FbDbContext.SubjectDetails.ToList();
+            return View(obj);
         }
 
-        [HttpPost]
+        public IActionResult Result(SubmissionForm submissionForm)   
+        {
+            SubmissionResult obj = new SubmissionResult();
+            obj.FilledResponses = FbDbContext.FeedbackEntry.Where(x=> x.SubjectId ==  submissionForm.SubjectCode && x.SubmissionTimestamp.Year == submissionForm.Year).ToList();
+            obj.D1 = 5.0;
+            obj.D2 = 5.0;
+            obj.D3 = 5.0;
+            obj.D4 = 5.0;
+            obj.D5 = 5.0;
+            obj.D6 = 5.0;
+            obj.D7 = 5.0;
+            obj.D8 = 5.0;
+            obj.D9 = 5.0;
+            obj.D10 = 5.0;
+            obj.TotalEntries = obj.FilledResponses.Count;
+
+            return View(obj);
+        }
+
+        public IActionResult Submissions()
+        {
+            SubmissionForm submissionForm = new SubmissionForm();
+            return View(submissionForm);
+        }
+
+        public IActionResult ShowResponse()
+        {
+            var Responses = FbDbContext.FeedbackEntry.ToList();
+            return View(Responses);
+        }
+
+        public IActionResult ViewForm()
+        {
+            string guidStr = HttpContext.Request.Query["FeedbackId"].ToString().ToUpper();
+
+			Guid feedbackId = Guid.Parse(guidStr);
+            Response obj = FbDbContext.ResponseEntry.Where(x => x.FeedbackId == feedbackId).FirstOrDefault();
+            if (obj == null) return NotFound();
+			return View(obj);
+        }
+		public IActionResult Add(String SubjectId, String SubjectName)
+		{
+			return View();
+		}
+		[HttpPost]
         public IActionResult Add(FormResponse response)
         {
 
@@ -78,7 +127,7 @@ namespace FeedbackFinal.Controllers
             responseObj.ResponseTextJ3 = response.J3;
             responseObj.ResponseTextJ4 = response.J4;
             responseObj.ResponseTextJ5 = response.J5;
-            responseObj.ResponsetextK1 = response.K1;
+            responseObj.ResponseTextK1 = response.K1;
 
 
 			FbDbContext.FeedbackEntry.Add(FbEntry);
